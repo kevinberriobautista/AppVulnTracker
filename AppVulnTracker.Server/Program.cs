@@ -4,6 +4,7 @@ using AutoMapper;
 using Microsoft.Extensions.FileProviders;
 using System.IO;
 using AppVulnTracker.Server.Utilidades;
+using AppVulnTracker.Server.Controllers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +15,7 @@ builder.Services.AddControllers();
 
 // Registrar servicios propios
 builder.Services.AddScoped<AplicationDbContext>();
+builder.Services.AddScoped<UsuarioController>();
 
 // Configurar CORS (antes de Build)
 builder.Services.AddCors(options =>
