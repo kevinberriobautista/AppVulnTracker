@@ -1,6 +1,6 @@
 ﻿namespace AppVulnTracker.Server.Modelos
 {
-    public class ArchivoAdjunto
+    public class ArchivoAdjuntoDTO
     {
         public int id_archivo { get; set; } // ID del archivo adjunto
         public int id_vulnerabilidad { get; set; } // ID de la vulnerabilidad a la que pertenece el archivo adjunto

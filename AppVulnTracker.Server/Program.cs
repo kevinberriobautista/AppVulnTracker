@@ -16,6 +16,9 @@ builder.Services.AddControllers();
 // Registrar servicios propios
 builder.Services.AddScoped<AplicationDbContext>();
 builder.Services.AddScoped<UsuarioController>();
+builder.Services.AddScoped<VulnerabilidadController>();
+builder.Services.AddScoped<ComentarioController>();
+builder.Services.AddScoped<ArchivoAdjuntoController>();
 
 // Configurar CORS (antes de Build)
 builder.Services.AddCors(options =>

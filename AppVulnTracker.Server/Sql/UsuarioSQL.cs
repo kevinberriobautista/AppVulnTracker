@@ -18,7 +18,8 @@ namespace AppVulnTracker.Server.Sql
 
         public string CrearUsuario(UsuarioDTO usuario, string hash)
         {
-            return $"insert into usuarios (nombre, correo, contrasena, rol, fechaCreacion) values ('{usuario.nombre}', '{usuario.correo}', '{hash}', '{usuario.rol}', '{usuario.fechaCreacion}');SELECT LAST_INSERT_ID();";
+            return $"insert into usuarios (nombre, correo, contrasena, rol, fechaCreacion) values ('{usuario.nombre}', '{usuario.correo}', '{hash}', " +
+                $"'{usuario.rol}', '{usuario.fechaCreacion:yyyy-MM-dd}');SELECT LAST_INSERT_ID();";
         }
     }
 }

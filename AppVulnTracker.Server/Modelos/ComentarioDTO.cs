@@ -1,6 +1,6 @@
 ﻿namespace AppVulnTracker.Server.Modelos
 {
-    public class Comentario
+    public class ComentarioDTO
     {
         public int id_comentario { get; set; }
         public int id_vulnerabilidad { get; set; } // ID de la vulnerabilidad a la que pertenece el comentario

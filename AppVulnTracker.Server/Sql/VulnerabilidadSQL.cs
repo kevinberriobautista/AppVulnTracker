@@ -21,8 +21,8 @@ namespace AppVulnTracker.Server.Sql
         {
             return $"insert into vulnerabilidades (titulo, descripcion, severidad, estado, activoAfectado, fechaCreacion, " +
                 $"fechaActualizacion, id_reportador, id_revisor) values ('{vulnerabilidad.titulo}', '{vulnerabilidad.descripcion}', " +
-                $"'{vulnerabilidad.severidad}', '{vulnerabilidad.estado}', '{vulnerabilidad.activoAfectado}', '{vulnerabilidad.fechaCreacion}', " +
-                $"'{vulnerabilidad.fechaActualizacion}', '{vulnerabilidad.id_reportador}', '{vulnerabilidad.id_revisor}');SELECT LAST_INSERT_ID();";
+                $"'{vulnerabilidad.severidad}', '{vulnerabilidad.estado}', '{vulnerabilidad.activoAfectado}', '{vulnerabilidad.fechaCreacion:yyyy-MM-dd}', " +
+                $"'{vulnerabilidad.fechaActualizacion:yyyy-MM-dd}', '{vulnerabilidad.id_reportador}', '{vulnerabilidad.id_revisor}');SELECT LAST_INSERT_ID();";
         }
     }
 }
