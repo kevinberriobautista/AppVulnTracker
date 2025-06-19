@@ -1,0 +1,6 @@
+@AppVulnTracker.Server_HostAddress = http://localhost:5101
+
+GET {{AppVulnTracker.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
