@@ -1,12 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-
-interface WeatherForecast {
-  date: string;
-  temperatureC: number;
-  temperatureF: number;
-  summary: string;
-}
+import { LoginService } from './auth/login.service';
+import { Usuario } from './modelos/usuario';
+import { Observable } from 'rxjs/internal/Observable';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +13,16 @@ interface WeatherForecast {
 })
 export class AppComponent {
 
-  constructor(private http: HttpClient) {}
+  usuario$: Observable<Usuario | null>;
+
+  constructor(private loginService: LoginService, private router: Router) {
+    this.usuario$ = this.loginService.usuario$; // observable que emite usuario logueado o null
+  }
+
+  cerrarSesion() {
+    this.loginService.logout();
+    this.router.navigate(['/login']);
+  }
 
   title = 'appvulntracker.client';
 }

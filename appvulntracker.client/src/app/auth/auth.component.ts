@@ -21,7 +21,8 @@ export class AuthComponent {
       next: (respuesta) => {
         // Si el login es exitoso, redirige al usuario a la página principal
         localStorage.setItem('token', respuesta.token);
-        this.router.navigate(['/']);
+        this.router.navigate(['/inicio']);
+        console.log(respuesta);
         console.log(respuesta.token);
       },
       error: () => {

@@ -10,6 +10,7 @@ import { VulnerabilidadesComponent } from './vulnerabilidades/vulnerabilidades.c
 import { ComentariosComponent } from './comentarios/comentarios.component';
 import { ArchivosComponent } from './archivos/archivos.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
+import { InicioComponent } from './inicio/inicio.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { UsuariosComponent } from './usuarios/usuarios.component';
     UsuariosComponent,
     VulnerabilidadesComponent,
     ArchivosComponent,
-    ComentariosComponent
+    ComentariosComponent,
+    InicioComponent
   ],
   imports: [
     BrowserModule, HttpClientModule,

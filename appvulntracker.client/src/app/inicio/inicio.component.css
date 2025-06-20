@@ -1,0 +1,39 @@
+/* inicio.component.css */
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 20px;
+}
+
+.box {
+  background-color: #3498db;
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+  .box:hover {
+    background-color: #2980b9;
+  }
+
+/* Responsive: 2 columnas para pantallas menores a 900px */
+@media (max-width: 900px) {
+  .container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Responsive: 1 columna para pantallas menores a 600px */
+@media (max-width: 600px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+}

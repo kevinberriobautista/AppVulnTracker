@@ -15,9 +15,10 @@ interface LoginResponse {
 export class LoginService {
   private baseUrl = 'https://localhost:7256/api/usuario/loginCliente';
   // Guarda el estado actual del usuario, es útil ante otros componentes que deban reaccionar al login/logout
-  private usuarioSubject = new BehaviorSubject<Usuario | null>(null);
+  public usuarioSubject = new BehaviorSubject<Usuario | null>(null);
   // usuario$: es un Observable que pueden usar tus componentes para "escuchar" cambios en el usuario
   public usuario$ = this.usuarioSubject.asObservable();
+
 
   // Se inyecta el servicio HttpClient para hacer peticiones
   constructor(private http: HttpClient) {

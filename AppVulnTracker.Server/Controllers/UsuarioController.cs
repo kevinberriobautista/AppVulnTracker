@@ -64,7 +64,16 @@ namespace AppVulnTracker.Server.Controllers
                     else
                     {
                         var token = GenerarToken(correoCliente);  // Método que genera el JWT
-                        return Ok(new { token = token });
+                        return Ok(new
+                        {
+                            token = token,
+                            usuario = new
+                            {
+                                id_usuario = correoCliente.id_usuario,
+                                correo = correoCliente.correo
+                                // aquí puedes añadir más campos si los tienes y quieres enviar
+                            }
+                        });
                     }
                 }
             }

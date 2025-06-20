@@ -1,14 +1,19 @@
-<!-- Barra de navegación -->
 <nav class="navbar">
   <div class="nav-left">
-    <a routerLink="/" class="logo">Inicio</a>
+    <a routerLink="/inicio" class="logo">Inicio</a>
     <a routerLink="/comprobaciones">Comprobaciones</a>
     <a routerLink="/vulnerabilidades">Vulnerabilidades</a>
   </div>
   <div class="nav-right">
-    <a routerLink="/login" class="login-btn">Iniciar Sesión</a>
+    <a *ngIf="!(usuario$ | async)" routerLink="/login" class="login-btn">Iniciar Sesión</a>
+
+    <div *ngIf="usuario$ | async as usuario" class="user-info">
+      Hola, {{ usuario.correo }}
+      <button (click)="cerrarSesion()">Cerrar Sesión</button>
+    </div>
   </div>
 </nav>
+
 
 <!-- Aquí se cargan los componentes de las rutas -->
 <router-outlet></router-outlet>
