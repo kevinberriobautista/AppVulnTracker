@@ -7,4 +7,10 @@
     <!-- Folder where production build objects will be placed -->
     <BuildOutputFolder>$(MSBuildProjectDirectory)\dist\appvulntracker.client\browser\</BuildOutputFolder>
   </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="src\app\archivos\" />
+    <Folder Include="src\app\comentarios\" />
+    <Folder Include="src\app\vulnerabilidades\" />
+    <Folder Include="src\app\usuarios\" />
+  </ItemGroup>
 </Project>

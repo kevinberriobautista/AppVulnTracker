@@ -15,11 +15,18 @@ namespace AppVulnTracker.Server.EndPoints
             usuarioController = parametroUsuarioController;
         }
 
-        //Listar todos los usuarios
+        // Listar todos los usuarios
         [HttpGet("lista")]
         public async Task<ActionResult<List<UsuarioDTO>?>> GetUsuarios()
         {
             return await usuarioController.ListarUsuarios();
+        }
+
+        // Login clientes
+        [HttpPost("loginCliente")]
+        public async Task<ActionResult<string>> PostLogin(LoginDTO login)
+        {
+            return await usuarioController.Login(login);
         }
     }
 }

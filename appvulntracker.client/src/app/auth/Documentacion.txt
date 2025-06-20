@@ -1,0 +1,14 @@
+Servicio login.service.ts
+
+Este servicio se encargará de:
+
+- Hacer login enviando las credenciales al backend.
+
+- Guardar el token JWT (si usas).
+
+- Verificar si el usuario está autenticado.
+
+- Obtener datos del usuario.
+
+- Cerrar sesión.
+
