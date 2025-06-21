@@ -1,0 +1,126 @@
+1. Roles o permisos (si aplica)
+
+Si tu backend distingue entre tipos de usuarios (cliente, admin, etc.), podrías:
+
+Incluir el rol en el token o devolverlo junto al usuario
+
+Mostrar u ocultar secciones según el rol
+
+Crear guards específicos para rutas de admin
+
+-------------------------------------------------------------------------------------------------------
+
+2. Gestión de sesión (expiración de token)
+
+Ahora mismo, si el token expira, el usuario podría seguir navegando. Para mejorar eso:
+
+Detecta si el token ha caducado (puedes decodificarlo con jwt-decode)
+
+Forzar logout si el token ya no es válido
+
+Refrescar token si tu backend lo permite
+
+-------------------------------------------------------------------------------------------------------
+
+3. Conectar más funcionalidades
+
+Ahora puedes empezar a construir funcionalidades reales de la app. Ejemplos:
+
+📄 Gestión de usuarios (ver perfil, editar datos, etc.)
+
+🛡️ Módulo de vulnerabilidades, si es de seguridad
+
+📁 Subida/descarga de archivos, si aplica
+
+🧪 Pruebas automáticas o generación de reportes
+
+📊 Dashboard con estadísticas
+
+-------------------------------------------------------------------------------------------------------
+
+4. UI/UX
+
+Mejora la apariencia con algún framework como Tailwind o Angular Material
+
+Agrega mensajes toast con librerías como ngx-toastr
+
+Usa loaders/spinners para mejorar experiencia
+
+-------------------------------------------------------------------------------------------------------
+
+5. Protección de rutas desde el backend
+
+Aunque el guard en Angular funciona, también debes proteger en el backend las rutas sensibles leyendo el JWT en las peticiones y validándolo.
+
+-------------------------------------------------------------------------------------------------------
+
+6. Guardar el estado del login tras reiniciar
+
+Ya lo estás haciendo con localStorage, pero podrías mejorar:
+
+Usar sessionStorage si solo quieres recordar mientras el navegador esté abierto
+
+Verificar en cada petición que el token siga siendo válido
+
+-------------------------------------------------------------------------------------------------------
+
+1. Módulo de Test de Vulnerabilidades 
+
+Aquí es donde los usuarios podrán ejecutar pruebas automáticas. Puedes avanzar así:
+
+a. Diseño del flujo de test
+
+Página con un formulario para elegir el tipo de test (XSS, SQLi, CSRF, etc.).
+
+Campos para ingresar la URL o endpoint objetivo.
+
+Botón para iniciar el test.
+
+b. Backend
+
+Controladores que ejecuten scripts (puede ser en Python o C#) que simulen ataques controlados.
+
+Generar y devolver un informe con los resultados del test (vulnerabilidades detectadas, riesgo, etc.).
+
+c. Frontend
+
+Mostrar los resultados de los test en tablas o tarjetas.
+
+Permitir guardar el informe de forma local o en la base de datos.
+
+--------------------------------------------------------------------------------------------------------
+
+2. Módulo Gestor de Vulnerabilidades
+
+Donde se registran, gestionan y corrigen vulnerabilidades.
+
+a. Listado de vulnerabilidades
+
+Página que muestre todas las vulnerabilidades detectadas/manualmente añadidas.
+
+Botón para agregar una nueva vulnerabilidad.
+
+b. Formulario para añadir vulnerabilidades
+
+Campos como: título, descripción, criticidad (baja/media/alta), estado (pendiente, mitigada, validada), fecha de descubrimiento, etc.
+
+c. Acciones
+
+Editar / eliminar vulnerabilidad.
+
+Marcar como mitigada o validada.
+
+Filtrar por estado o criticidad.
+
+---------------------------------------------------------------------------------------------------------
+
+Extras útiles
+Dashboard con métricas: número de test realizados, vulnerabilidades por tipo o criticidad.
+
+Roles (admin/usuario).
+
+Historial de actividad (quién hizo qué).
+
+Exportar a PDF o CSV.
+
+

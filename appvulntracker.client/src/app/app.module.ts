@@ -11,6 +11,7 @@ import { ComentariosComponent } from './comentarios/comentarios.component';
 import { ArchivosComponent } from './archivos/archivos.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { InicioComponent } from './inicio/inicio.component';
+import { TestVulnerabilidadesComponent } from './test-vulnerabilidades/test-vulnerabilidades.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { InicioComponent } from './inicio/inicio.component';
   ],
   imports: [
     BrowserModule, HttpClientModule,
-    AppRoutingModule, FormsModule
+    AppRoutingModule, FormsModule,
+    TestVulnerabilidadesComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

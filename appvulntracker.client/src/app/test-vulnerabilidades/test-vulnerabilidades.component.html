@@ -1,0 +1,34 @@
+<h2 class="titulo">Test de Vulnerabilidades</h2>
+
+<div class="grid-container">
+  <div class="test-box" (click)="ejecutarTest('xss')">
+    <h3>XSS</h3>
+    <p>Prueba de Cross-Site Scripting</p>
+  </div>
+  <div class="test-box" (click)="ejecutarTest('sqli')">
+    <h3>SQL Injection</h3>
+    <p>Prueba de inyección SQL</p>
+  </div>
+  <div class="test-box" (click)="ejecutarTest('csrf')">
+    <h3>CSRF</h3>
+    <p>Cross-Site Request Forgery</p>
+  </div>
+  <div class="test-box" (click)="ejecutarTest('lfi')">
+    <h3>LFI</h3>
+    <p>Local File Inclusion</p>
+  </div>
+  <div class="test-box" (click)="ejecutarTest('rce')">
+    <h3>RCE</h3>
+    <p>Remote Code Execution</p>
+  </div>
+  <div class="test-box" (click)="ejecutarTest('open-redirect')">
+    <h3>Open Redirect</h3>
+    <p>Redirección Abierta</p>
+  </div>
+</div>
+
+<div class="resultado" *ngIf="resultado">
+  <h3>Resultado del test:</h3>
+  <pre>{{ resultado | json }}</pre>
+</div>
+

@@ -5,6 +5,7 @@ using Microsoft.Extensions.FileProviders;
 using System.IO;
 using AppVulnTracker.Server.Utilidades;
 using AppVulnTracker.Server.Controllers;
+using AppVulnTracker.Server.Utilidades.Servicios;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,6 +20,8 @@ builder.Services.AddScoped<UsuarioController>();
 builder.Services.AddScoped<VulnerabilidadController>();
 builder.Services.AddScoped<ComentarioController>();
 builder.Services.AddScoped<ArchivoAdjuntoController>();
+builder.Services.AddScoped<TestVulnerabilidadController>();
+builder.Services.AddScoped<ServicioTest>();
 
 // Configurar CORS (antes de Build)
 builder.Services.AddCors(options =>
