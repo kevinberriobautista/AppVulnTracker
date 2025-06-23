@@ -8,5 +8,10 @@
         public string url { get; set; }
         public string resultado { get; set; }
         public DateTime fecha { get; set; }
+
+        public static implicit operator int(TestVulnerabilidadDTO? v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

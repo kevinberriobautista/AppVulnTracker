@@ -21,12 +21,12 @@ import { TestVulnerabilidadesComponent } from './test-vulnerabilidades/test-vuln
     VulnerabilidadesComponent,
     ArchivosComponent,
     ComentariosComponent,
-    InicioComponent
+    InicioComponent,
+    TestVulnerabilidadesComponent
   ],
   imports: [
     BrowserModule, HttpClientModule,
     AppRoutingModule, FormsModule,
-    TestVulnerabilidadesComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

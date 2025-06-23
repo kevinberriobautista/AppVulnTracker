@@ -24,7 +24,7 @@ namespace AppVulnTracker.Server.EndPoints
 
         // Crear test de vulnerabilidad
         [HttpPost("ejecutar")]
-        public async Task<ActionResult<int>?> PostTest(TestRequestDTO test)
+        public async Task<ActionResult<TestVulnerabilidadDTO>> PostTest(TestRequestDTO test)
         {
             return await testVulnerabilidadController.EjecutarTest(test);
         }

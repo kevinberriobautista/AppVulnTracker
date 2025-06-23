@@ -1,27 +1,27 @@
 <h2 class="titulo">Test de Vulnerabilidades</h2>
 
 <div class="grid-container">
-  <div class="test-box" (click)="ejecutarTest('xss')">
+  <div class="test-box" (click)="ejecutar('xss')">
     <h3>XSS</h3>
     <p>Prueba de Cross-Site Scripting</p>
   </div>
-  <div class="test-box" (click)="ejecutarTest('sqli')">
+  <div class="test-box" (click)="ejecutar('sqli')">
     <h3>SQL Injection</h3>
     <p>Prueba de inyección SQL</p>
   </div>
-  <div class="test-box" (click)="ejecutarTest('csrf')">
+  <div class="test-box" (click)="ejecutar('csrf')">
     <h3>CSRF</h3>
     <p>Cross-Site Request Forgery</p>
   </div>
-  <div class="test-box" (click)="ejecutarTest('lfi')">
+  <div class="test-box" (click)="ejecutar('lfi')">
     <h3>LFI</h3>
     <p>Local File Inclusion</p>
   </div>
-  <div class="test-box" (click)="ejecutarTest('rce')">
+  <div class="test-box" (click)="ejecutar('rce')">
     <h3>RCE</h3>
     <p>Remote Code Execution</p>
   </div>
-  <div class="test-box" (click)="ejecutarTest('open-redirect')">
+  <div class="test-box" (click)="ejecutar('open-redirect')">
     <h3>Open Redirect</h3>
     <p>Redirección Abierta</p>
   </div>
@@ -29,6 +29,28 @@
 
 <div class="resultado" *ngIf="resultado">
   <h3>Resultado del test:</h3>
-  <pre>{{ resultado | json }}</pre>
+  <table class="resultado-table">
+    <thead>
+      <tr>
+        <th>Id Test</th>
+        <th>Id Usuario</th>
+        <th>Tipo</th>
+        <th>URL</th>
+        <th>Resultado</th>
+        <th>Fecha</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ resultado.id_testvulnerabilidad }}</td>
+        <td>{{ resultado.nombre_usuario }}</td>
+        <td>{{ resultado.tipo }}</td>
+        <td>{{ resultado.url }}</td>
+        <td>{{ resultado.resultado }}</td>
+        <td>{{ resultado.fecha | date:'yyyy-MM-dd' }}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
+
 

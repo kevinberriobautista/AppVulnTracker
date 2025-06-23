@@ -45,6 +45,25 @@ namespace AppVulnTracker.Server.Controllers
             }
         }
 
+        // Método para obtener usuario por id
+        public async Task<ActionResult<UsuarioDTO>?> BuscarUsuarioPorId(int id_usuario)
+        {
+            try
+            {
+                using (var conexion = context._connection)
+                {
+                    conexion.Open();
+                    UsuarioDTO? usuario = await conexion.QueryFirstOrDefaultAsync<UsuarioDTO>(usuarioSQL.BuscarUsuarioPorId(id_usuario)) as UsuarioDTO;
+
+                    return Ok(usuario);
+                }
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+        }
+
         //Login Clientes
         public async Task<ActionResult<string>> Login(LoginDTO login)
         {

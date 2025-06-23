@@ -61,7 +61,7 @@ namespace AppVulnTracker.Server.Controllers
                     tipo = test.tipo,
                     url = test.url,
                     resultado = resultado,
-                    fecha = DateTime.Now
+                    fecha = DateTime.Now.Date
                 };
 
                 using (var conexion = context._connection)
@@ -71,9 +71,13 @@ namespace AppVulnTracker.Server.Controllers
                     {
                         try
                         {
-                            var nuevoTestVulnerabilidad = await conexion.ExecuteScalarAsync<int>(testVulnerabilidadSQL.CrearTest(testvulnerabilidad), transaction: exec);
+                            //var nuevoTestVulnerabilidad = await conexion.ExecuteScalarAsync<int>(testVulnerabilidadSQL.CrearTest(testvulnerabilidad), transaction: exec);
+                            //exec.Commit();
+                            //return Ok(nuevoTestVulnerabilidad);
+
+                            var testFinal = await conexion.QuerySingleAsync<TestVulnerabilidadDTO>(testVulnerabilidadSQL.CrearTest(testvulnerabilidad), transaction: exec);
                             exec.Commit();
-                            return Ok(nuevoTestVulnerabilidad);
+                            return Ok(testFinal);
                         }
                         catch (Exception)
                         {

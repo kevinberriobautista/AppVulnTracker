@@ -18,7 +18,7 @@ namespace AppVulnTracker.Server.Sql
         public string CrearTest(TestVulnerabilidadDTO test)
         {
             return $"insert into test_vulnerabilidades (id_usuario, tipo, url, resultado, fecha) values ('{test.id_usuario}', '{test.tipo}', '{test.url}', " +
-                $"{test.resultado}, '{test.fecha:yyyy-MM-dd}');SELECT LAST_INSERT_ID();";
+                $"'{test.resultado}', '{test.fecha:yyyy-MM-dd}');SELECT * from test_vulnerabilidades where id_testvulnerabilidad = LAST_INSERT_ID();";
         }
     }
 }
