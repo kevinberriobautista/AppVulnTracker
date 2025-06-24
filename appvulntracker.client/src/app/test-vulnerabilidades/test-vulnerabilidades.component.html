@@ -29,28 +29,49 @@
 
 <div class="resultado" *ngIf="resultado">
   <h3>Resultado del test:</h3>
-  <table class="resultado-table">
-    <thead>
-      <tr>
-        <th>Id Test</th>
-        <th>Id Usuario</th>
-        <th>Tipo</th>
-        <th>URL</th>
-        <th>Resultado</th>
-        <th>Fecha</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>{{ resultado.id_testvulnerabilidad }}</td>
-        <td>{{ resultado.nombre_usuario }}</td>
-        <td>{{ resultado.tipo }}</td>
-        <td>{{ resultado.url }}</td>
-        <td>{{ resultado.resultado }}</td>
-        <td>{{ resultado.fecha | date:'yyyy-MM-dd' }}</td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="card-resultado">
+    <div><strong>Id Test:</strong> {{ resultado.id_testvulnerabilidad }}</div>
+    <div><strong>Id Usuario:</strong> {{ resultado.nombre_usuario }}</div>
+    <div><strong>Tipo:</strong> {{ resultado.tipo }}</div>
+    <div><strong>URL:</strong> {{ resultado.url }}</div>
+    <div><strong>Resultado:</strong> {{ resultado.resultado }}</div>
+    <div><strong>Fecha:</strong> {{ resultado.fecha | date:'yyyy-MM-dd' }}</div>
+
+    <button (click)="agregarVulnerabilidad(resultado)" class="btn-agregar">
+      Agregar Vulnerabilidad
+    </button>
+  </div>
 </div>
 
+<mat-accordion class="historial">
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>Historial de Tests Realizados</mat-panel-title>
+    </mat-expansion-panel-header>
 
+    <!-- Filtros -->
+    <div class="filtros">
+      <input type="text" placeholder="Filtrar por usuario..." [(ngModel)]="filtroUsuario" />
+      <input type="text" placeholder="Filtrar por tipo..." [(ngModel)]="filtroTipo" />
+    </div>
+
+    <div class="cards-container" *ngIf="testsVulnerabilidadCompletoFiltrados.length > 0">
+      <div class="card-test" *ngFor="let test of testsVulnerabilidadCompletoFiltrados">
+        <div><strong>ID:</strong> {{ test.id_testvulnerabilidad }}</div>
+        <div><strong>Usuario:</strong> {{ test.nombre_usuario }}</div>
+        <div><strong>Tipo:</strong> {{ test.nombre_tipo }}</div>
+        <div><strong>URL:</strong> {{ test.url }}</div>
+        <div><strong>Resultado:</strong> {{ test.resultado }}</div>
+        <div><strong>Fecha:</strong> {{ test.fecha | date:'yyyy-MM-dd HH:mm' }}</div>
+
+        <button (click)="agregarVulnerabilidad(test)" class="btn-agregar">
+          Agregar Vulnerabilidad
+        </button>
+      </div>
+    </div>
+
+    <div *ngIf="testsVulnerabilidadCompletoFiltrados.length === 0" class="no-tests">
+      No hay tests que coincidan con el filtro.
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>

@@ -19,7 +19,7 @@ namespace AppVulnTracker.Server.EndPoints
         [HttpGet("lista")]
         public async Task<ActionResult<List<TestVulnerabilidadDTO>?>> GetTest()
         {
-            return await testVulnerabilidadController.ListarTest();
+            return await testVulnerabilidadController.ListarTestCompleto();
         }
 
         // Crear test de vulnerabilidad

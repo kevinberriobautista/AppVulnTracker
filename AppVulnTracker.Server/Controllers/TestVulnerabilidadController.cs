@@ -21,7 +21,7 @@ namespace AppVulnTracker.Server.Controllers
             testVulnerabilidadSQL = new TestVulnerabilidadSQL();
         }
 
-        // Método para obtener todos los test
+        // Método para obtener todos los test (BÁSICO)
         public async Task<ActionResult<List<TestVulnerabilidadDTO>?>> ListarTest()
         {
             try
@@ -32,6 +32,25 @@ namespace AppVulnTracker.Server.Controllers
                     List<TestVulnerabilidadDTO>? lista_test = await conexion.QueryAsync<TestVulnerabilidadDTO>(testVulnerabilidadSQL.VerTest()) as List<TestVulnerabilidadDTO>;
 
                     return Ok(lista_test);
+                }
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+        }
+
+        // Método para obtener todos los test (COMPLETO)
+        public async Task<ActionResult<List<TestVulnerabilidadDTO>?>> ListarTestCompleto()
+        {
+            try
+            {
+                using (var conexion = context._connection)
+                {
+                    conexion.Open();
+                    List<TestVulnerabilidadCompletoDTO>? lista_test_completo = await conexion.QueryAsync<TestVulnerabilidadCompletoDTO>(testVulnerabilidadSQL.VerTestCompleto()) as List<TestVulnerabilidadCompletoDTO>;
+
+                    return Ok(lista_test_completo);
                 }
             }
             catch (Exception)

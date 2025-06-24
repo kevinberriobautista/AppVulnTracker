@@ -3,6 +3,7 @@ import { TestVulnerabilidadesService } from './test-vulnerabilidades.service';
 import { TestRequest } from '../modelos/test-request';
 import { LoginService } from '../auth/login.service';
 import { UsuarioService } from '../usuarios/usuario.service';
+import { TestVulnerabilidadCompleto } from '../modelos/testVulnerabilidadCompleto';
 
 @Component({
   standalone: false, // <- importante si lo vas a declarar en AppModule
@@ -12,6 +13,7 @@ import { UsuarioService } from '../usuarios/usuario.service';
 })
 export class TestVulnerabilidadesComponent {
   resultado: any = null;
+  testsVulnerabilidadCompleto: TestVulnerabilidadCompleto[] = [];
 
   constructor(
     private testService: TestVulnerabilidadesService,
@@ -19,6 +21,41 @@ export class TestVulnerabilidadesComponent {
     private usuarioService: UsuarioService
   ) { }
 
+  // Metodo para listar los test de vulnerabilidad (COMPLETO)
+  ngOnInit(): void {
+    this.testService.obtenerTests().subscribe({
+      next: data => this.testsVulnerabilidadCompleto = data,
+      error: err => console.error('Error cargando tests de vulnerablidades: ', err)
+    })
+  }
+
+  // Filtrar tests de vulnerabilidad
+  filtroUsuario: string = '';
+  filtroTipo: string = '';
+
+  get testsVulnerabilidadCompletoFiltrados() {
+    return this.testsVulnerabilidadCompleto.filter(test =>
+      test.nombre_usuario.toLowerCase().includes(this.filtroUsuario.toLowerCase()) &&
+      test.nombre_tipo.toLowerCase().includes(this.filtroTipo.toLowerCase())
+    );
+  }
+
+  // Crear vulnerabilidad
+  agregarVulnerabilidad(test: any) {
+    // Aquí puedes hacer lo que necesites para agregar la vulnerabilidad.
+    // Por ejemplo, abrir un diálogo modal, redirigir a otra página o hacer una llamada al backend.
+
+    console.log('Agregar vulnerabilidad para test:', test);
+
+    // Ejemplo: abrir un modal (si usas Angular Material Dialog)
+    // this.dialog.open(AgregarVulnerabilidadDialogComponent, { data: test });
+
+    // O redirigir a otro componente pasando el test
+    // this.router.navigate(['/agregar-vulnerabilidad', test.id_testvulnerabilidad]);
+  }
+
+
+  // Metodo para crear los test de vulnerabilidad 
   ejecutar(tipo: string) {
     const tiposMap: { [key: string]: number } = {
       xss: 1,
@@ -62,7 +99,7 @@ export class TestVulnerabilidadesComponent {
           }
         });
 
-        alert(`Test ejecutado con ID: ${data.id_testvulnerabilidad || 'desconocido'}`);
+        //alert(`Test ejecutado con ID: ${data.id_testvulnerabilidad || 'desconocido'}`);
       },
       error: () => alert('Error al ejecutar el test')
     });
