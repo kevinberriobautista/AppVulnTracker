@@ -15,7 +15,7 @@ export class ListaVulnerabilidadesService {
     return this.http.get<Vulnerabilidad[]>(this.apiUrl + '/lista');
   }
 
-  obtenerSeveridadYEstado(id: number): Observable<{ estado: number, severidad: number }> {
-    return this.http.get<{ estado: number, severidad: number }>(this.apiUrl + '/estado-severidad/' + {id})
+  obtenerSeveridadYEstado(id: number): Observable<{ estado: string, severidad: string }> {
+    return this.http.get<{ estado: string, severidad: string }>(this.apiUrl + '/estado-severidad/' + id)
   }
 }

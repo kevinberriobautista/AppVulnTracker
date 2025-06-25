@@ -1,1 +1,42 @@
-<p>lista-vulnerabilidades works!</p>
+<h2 class="titulo">Lista de Vulnerabilidades</h2>
+
+<table class="tabla-vulnerabilidades">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Título</th>
+      <th>Descripción</th>
+      <th>Activo Afectado</th>
+      <th>Reportador</th>
+      <th>Revisor</th>
+      <th>Creación</th>
+      <th>Actualización</th>
+      <th>Severidad</th>
+      <th>Estado</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let vulnerabilidad of listaVulnerabilidades">
+      <td>{{ vulnerabilidad.id_vulnerabilidad }}</td>
+      <td>{{ vulnerabilidad.titulo }}</td>
+      <td>{{ vulnerabilidad.descripcion }}</td>
+      <td>{{ vulnerabilidad.activoAfectado }}</td>
+      <td>{{ vulnerabilidad.id_reportador }}</td>
+      <td>{{ vulnerabilidad.id_revisor }}</td>
+      <td>{{ vulnerabilidad.fechaCreacion | date: 'short' }}</td>
+      <td>{{ vulnerabilidad.fechaActualizacion | date: 'short' }}</td>
+      <td>{{ estadoYSeveridadMap[vulnerabilidad.id_vulnerabilidad]?.severidad || '...' }}</td>
+      <td>{{ estadoYSeveridadMap[vulnerabilidad.id_vulnerabilidad]?.estado || '...' }}</td>
+      <td>
+        <!--<button (click)="editarVulnerabilidad(vulnerabilidad)" class="btn editar">Editar</button>
+        <button (click)="agregarArchivo(vulnerabilidad)" class="btn archivo">Agregar Archivo</button>-->
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<p *ngIf="listaVulnerabilidades.length === 0" class="mensaje-vacio">
+  No hay vulnerabilidades registradas.
+</p>
+

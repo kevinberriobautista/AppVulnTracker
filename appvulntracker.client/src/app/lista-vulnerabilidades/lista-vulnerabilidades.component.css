@@ -1,0 +1,61 @@
+.titulo {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 28px;
+  color: #2c3e50;
+}
+
+.tabla-vulnerabilidades {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+  .tabla-vulnerabilidades th,
+  .tabla-vulnerabilidades td {
+    padding: 12px 15px;
+    text-align: center;
+    border: 1px solid #ddd;
+  }
+
+  .tabla-vulnerabilidades thead {
+    background-color: #2c3e50;
+    color: #fff;
+  }
+
+  .tabla-vulnerabilidades tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+
+  .tabla-vulnerabilidades tbody tr:hover {
+    background-color: #f1f1f1;
+  }
+
+.btn {
+  padding: 6px 12px;
+  margin: 2px;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+  .btn.editar {
+    background-color: #3498db;
+  }
+
+  .btn.archivo {
+    background-color: #2ecc71;
+  }
+
+  .btn:hover {
+    opacity: 0.9;
+  }
+
+.mensaje-vacio {
+  text-align: center;
+  color: #888;
+  margin-top: 20px;
+}

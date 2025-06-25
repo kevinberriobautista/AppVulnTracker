@@ -5,6 +5,7 @@ import { InicioComponent } from './inicio/inicio.component';
 import { TestVulnerabilidadesComponent } from './test-vulnerabilidades/test-vulnerabilidades.component';
 import { authGuard } from './auth/auth.guard';
 import { VulnerabilidadesComponent } from './vulnerabilidades/vulnerabilidades.component';
+import { ListaVulnerabilidadesComponent } from './lista-vulnerabilidades/lista-vulnerabilidades.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'inicio', component: InicioComponent, canActivate: [authGuard] },
   { path: 'testvulnerabilidades', component: TestVulnerabilidadesComponent, canActivate: [authGuard] },
   { path: 'vulnerabilidades', component: VulnerabilidadesComponent, canActivate: [authGuard] },
+  { path: 'lista-vulnerabilidades', component: ListaVulnerabilidadesComponent, canActivate: [authGuard] },
 ];
 
 @NgModule({
