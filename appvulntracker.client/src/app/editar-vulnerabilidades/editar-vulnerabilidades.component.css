@@ -59,6 +59,24 @@ form.editar-vulnerabilidad {
       background-color: #5a3795;
     }
 
+  form.editar-vulnerabilidad button[type='button'] {
+    display: block;
+    width: 100%;
+    padding: 10px 14px;
+    background-color: #ccc; /* color gris claro */
+    color: #333; /* texto oscuro */
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 10px; /* separarlo un poco del botón de enviar */
+    transition: background-color 0.2s ease;
+  }
+
+    form.editar-vulnerabilidad button[type='button']:hover {
+      background-color: #999; /* gris más oscuro al pasar el cursor */
+    }
+
   /* Mensajes */
   form.editar-vulnerabilidad p {
     margin-top: 10px;
