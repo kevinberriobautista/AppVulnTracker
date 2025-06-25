@@ -26,6 +26,18 @@ namespace AppVulnTracker.Server.Sql
                 $"SELECT * FROM vulnerabilidades WHERE id_vulnerabilidad = LAST_INSERT_ID();";
         }
 
+        // Modificar vulnerabilidad
+        public string ModificarVulnerabilidad(VulnerabilidadDTO vulnerabilidad)
+        {
+            return $"UPDATE vulnerabilidades " +
+                $"SET titulo = '{vulnerabilidad.titulo}', descripcion = '{vulnerabilidad.descripcion}', severidad = {vulnerabilidad.severidad}, " +
+                $"estado = {vulnerabilidad.estado}, activoAfectado = '{vulnerabilidad.activoAfectado}', fechaActualizacion = '{vulnerabilidad.fechaActualizacion:yyyy-MM-dd}', " +
+                $"id_reportador = {vulnerabilidad.id_reportador}, id_revisor = {vulnerabilidad.id_revisor} " +
+                $"WHERE id_vulnerabilidad = {vulnerabilidad.id_vulnerabilidad}; " +
+                $"SELECT * FROM vulnerabilidades WHERE id_vulnerabilidad = {vulnerabilidad.id_vulnerabilidad};";
+        }
+
+
         // Mostrar severidad y estado por id
         public string MostrarEstadoYSeveridad(int id)
         {

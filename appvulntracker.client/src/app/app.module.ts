@@ -14,6 +14,7 @@ import { UsuariosComponent } from './usuarios/usuarios.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { TestVulnerabilidadesComponent } from './test-vulnerabilidades/test-vulnerabilidades.component';
 import { ListaVulnerabilidadesComponent } from './lista-vulnerabilidades/lista-vulnerabilidades.component';
+import { EditarVulnerabilidadesComponent } from './editar-vulnerabilidades/editar-vulnerabilidades.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { ListaVulnerabilidadesComponent } from './lista-vulnerabilidades/lista-v
     ComentariosComponent,
     InicioComponent,
     TestVulnerabilidadesComponent,
-    ListaVulnerabilidadesComponent
+    ListaVulnerabilidadesComponent,
+    EditarVulnerabilidadesComponent
   ],
   imports: [
     BrowserModule, HttpClientModule,

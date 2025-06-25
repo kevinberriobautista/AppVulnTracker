@@ -38,13 +38,15 @@ export class ListaVulnerabilidadesComponent {
     });
   }
 
-  getClaseIcono(severidad: number): string {
-    switch (severidad) {
-      case 1: return 'icono-baja';
-      case 2: return 'icono-media';
-      case 3: return 'icono-alta';
-      case 4: return 'icono-critica';
-      default: return '';
-    }
+  vulnerabilidadSeleccionada?: Vulnerabilidad;
+  mostrarModalEditar: boolean = false;
+
+  seleccionarParaEditar(vul: Vulnerabilidad) {
+    this.vulnerabilidadSeleccionada = { ...vul }; // Copia segura
+    this.mostrarModalEditar = true;
+  }
+
+  cerrarModal() {
+    this.mostrarModalEditar = false;
   }
 }

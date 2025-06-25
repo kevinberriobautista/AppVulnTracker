@@ -35,5 +35,12 @@ namespace AppVulnTracker.Server.EndPoints
             return await vulnerabilidadController.CrearVulnerabilidad(vulnerabilidad);
         }
 
+        // Modificar vulnerabilidad
+        [HttpPut("modificarVulnerabilidad")]
+        public async Task<ActionResult<VulnerabilidadDTO>> UpdateVulnerabilidad(VulnerabilidadDTO vulnerabilidad)
+        {
+            return await vulnerabilidadController.ModificarVulnerabilidad(vulnerabilidad);
+        }
+
     }
 }

@@ -35,7 +35,7 @@ export class VulnerabilidadesComponent {
     this.vulnerabilidadService.crearVulnerabilidad(this.vulnerabilidad).subscribe({
       next: () => {
         this.mensaje = 'Vulnerabilidad registrada con éxito';
-        this.router.navigate(['/vulnerabilidades']); // Redirige tras registrar la vulnerabilidad
+        this.router.navigate(['/lista-vulnerabilidades']); // Redirige tras registrar la vulnerabilidad
       },
       error: () => {
         this.mensaje = 'Error al registrar la vulnerabilidad';

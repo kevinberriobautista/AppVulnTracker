@@ -60,19 +60,6 @@ namespace AppVulnTracker.Server.Controllers
         {
             try
             {
-                //var testvulnerabilidad = new VulnerabilidadDTO
-                //{
-                //    titulo = vulnerabilidad.titulo,
-                //    descripcion = vulnerabilidad.descripcion,
-                //    severidad = vulnerabilidad.severidad,
-                //    estado = vulnerabilidad.url,
-                //    activoAfectado = vulnerabilidad,
-                //    fechaCreacion = vulnerabilidad,
-                //    fechaActualizacion = vulnerabilidad,
-                //    id_reportador = vulnerabilidad,
-                //    id_revisor = vulnerabilidad,
-                //};
-
                 using (var conexion = context._connection)
                 {
                     conexion.Open();
@@ -88,6 +75,36 @@ namespace AppVulnTracker.Server.Controllers
                         {
                             exec.Rollback();
                             return BadRequest("Error al crear la vulnerabilidad.");
+                        }
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+        }
+
+        // Método para modificar una vulnerabilidad
+        public async Task<ActionResult<VulnerabilidadDTO>> ModificarVulnerabilidad(VulnerabilidadDTO vulnerabilidad)
+        {
+            try
+            {
+                using (var conexion = context._connection)
+                {
+                    conexion.Open();
+                    using (var exec = conexion.BeginTransaction())
+                    {
+                        try
+                        {
+                            var vulnerabilidadModificada = await conexion.QuerySingleAsync<VulnerabilidadDTO>(vulnerabilidadSQL.ModificarVulnerabilidad(vulnerabilidad), transaction: exec);
+                            exec.Commit();
+                            return Ok(vulnerabilidadModificada);
+                        }
+                        catch (Exception)
+                        {
+                            exec.Rollback();
+                            return BadRequest("Error al modificar la vulnerabilidad.");
                         }
                     }
                 }
