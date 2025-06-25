@@ -36,6 +36,25 @@ namespace AppVulnTracker.Server.Controllers
             }
         }
 
+        //Metodo para devolver estado y severidad de vulnerabilidades
+        public async Task<ActionResult<SeveridadyEstadoVulnerabilidadDTO>?> MostrarEstadoySeveridad(int id_vulnerabilidad)
+        {
+            try
+            {
+                using (var conexion = context._connection)
+                {
+                    conexion.Open();
+                    SeveridadyEstadoVulnerabilidadDTO? resultado = await conexion.QuerySingleOrDefaultAsync<SeveridadyEstadoVulnerabilidadDTO>(vulnerabilidadSQL.MostrarEstadoYSeveridad(id_vulnerabilidad)) as SeveridadyEstadoVulnerabilidadDTO;
+
+                    return Ok(resultado);
+                }
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+        }
+
         // Método para crear un vulnerabilidad
         public async Task<ActionResult<VulnerabilidadDTO>> CrearVulnerabilidad(VulnerabilidadDTO vulnerabilidad)
         {

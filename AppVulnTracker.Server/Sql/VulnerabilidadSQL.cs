@@ -26,20 +26,14 @@ namespace AppVulnTracker.Server.Sql
                 $"SELECT * FROM vulnerabilidades WHERE id_vulnerabilidad = LAST_INSERT_ID();";
         }
 
-        // Mostrar tipos de severidad
-        public string MostrarSeveridad()
+        // Mostrar severidad y estado por id
+        public string MostrarEstadoYSeveridad(int id)
         {
-            return $"SELECT ts.nombre" +
-                $"FROM vulnerabilidades v" +
-                $"JOIN tipo_severidad ts ON v.severidad = ts.id_severidad;";
-        }
-
-        // Mostrar tipos de estado
-        public string MostrarEstados()
-        {
-            return $"SELECT te.nombre" +
-                $"FROM vulnerabilidades v" +
-                $"JOIN tipo_estado ts ON v.estado = te.id_estado;";
+            return $"SELECT ts.nombre AS severidad, te.nombre AS estado " +
+                $"FROM vulnerabilidades v " +
+                $"JOIN tipo_severidad ts ON v.severidad = ts.id_severidad " +
+                $"JOIN tipo_estado te ON v.estado = te.id_estado " +
+                $"WHERE v.id_vulnerabilidad = {id};";
         }
     }
 }

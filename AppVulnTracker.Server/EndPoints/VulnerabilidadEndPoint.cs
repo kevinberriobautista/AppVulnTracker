@@ -21,9 +21,16 @@ namespace AppVulnTracker.Server.EndPoints
             return await vulnerabilidadController.ListarVulnerabilidades();
         }
 
+        // Devulve severidad y estado
+        [HttpGet("estado-severidad/{id}")]
+        public async Task<ActionResult<SeveridadyEstadoVulnerabilidadDTO>?> GetEstadoYSeveridad(int id)
+        {
+            return await vulnerabilidadController.MostrarEstadoySeveridad(id);
+        }
+
         // Crear vulnerabilidad
         [HttpPost("crearVulnerabilidad")]
-        public async Task<ActionResult<VulnerabilidadDTO>> PostVulnerabilidad([FromBody] VulnerabilidadDTO vulnerabilidad)
+        public async Task<ActionResult<VulnerabilidadDTO>> PostVulnerabilidad(VulnerabilidadDTO vulnerabilidad)
         {
             return await vulnerabilidadController.CrearVulnerabilidad(vulnerabilidad);
         }

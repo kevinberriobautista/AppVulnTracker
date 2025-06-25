@@ -13,6 +13,7 @@ import { ArchivosComponent } from './archivos/archivos.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { TestVulnerabilidadesComponent } from './test-vulnerabilidades/test-vulnerabilidades.component';
+import { ListaVulnerabilidadesComponent } from './lista-vulnerabilidades/lista-vulnerabilidades.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { TestVulnerabilidadesComponent } from './test-vulnerabilidades/test-vuln
     ArchivosComponent,
     ComentariosComponent,
     InicioComponent,
-    TestVulnerabilidadesComponent
+    TestVulnerabilidadesComponent,
+    ListaVulnerabilidadesComponent
   ],
   imports: [
     BrowserModule, HttpClientModule,

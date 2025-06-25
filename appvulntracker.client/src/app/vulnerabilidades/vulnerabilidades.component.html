@@ -20,6 +20,7 @@
   </div>
 
   <!-- Severidad -->
+  <label>Severidad</label>
   <select id="severidad" name="severidad" [(ngModel)]="vulnerabilidad.severidad" required>
     <option [ngValue]="null" disabled>Selecciona severidad</option>
     <option [ngValue]="1">Baja</option>
@@ -29,6 +30,7 @@
   </select>
 
   <!-- Estado -->
+  <label>Estado</label>
   <select id="estado" name="estado" [(ngModel)]="vulnerabilidad.estado" required>
     <option [ngValue]="null" disabled>Selecciona estado</option>
     <option [ngValue]="1">Detectada</option>

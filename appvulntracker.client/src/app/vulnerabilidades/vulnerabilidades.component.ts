@@ -26,6 +26,8 @@ export class VulnerabilidadesComponent {
   errorMessage: string = ''
   mensaje = '';
 
+  resultado: any = null;
+
   constructor(private vulnerabilidadService: VulnerabilidadService, private router: Router) { }
 
   crearVulnerabilidad(): void {
