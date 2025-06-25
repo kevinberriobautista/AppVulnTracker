@@ -37,4 +37,14 @@ export class ListaVulnerabilidadesComponent {
       error: err => console.error('Error cargando la lista de vulnerabilidades.')
     });
   }
+
+  getClaseIcono(severidad: number): string {
+    switch (severidad) {
+      case 1: return 'icono-baja';
+      case 2: return 'icono-media';
+      case 3: return 'icono-alta';
+      case 4: return 'icono-critica';
+      default: return '';
+    }
+  }
 }

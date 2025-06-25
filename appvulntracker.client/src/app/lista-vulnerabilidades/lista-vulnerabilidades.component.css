@@ -1,61 +1,165 @@
+/* Recomendado mantener el mismo CSS que ya tienes para estructura y botones */
+
 .titulo {
   text-align: center;
-  margin-bottom: 20px;
-  font-size: 28px;
-  color: #2c3e50;
+  margin-bottom: 1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
 }
-
-.tabla-vulnerabilidades {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 0 auto;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-  .tabla-vulnerabilidades th,
-  .tabla-vulnerabilidades td {
-    padding: 12px 15px;
-    text-align: center;
-    border: 1px solid #ddd;
-  }
-
-  .tabla-vulnerabilidades thead {
-    background-color: #2c3e50;
-    color: #fff;
-  }
-
-  .tabla-vulnerabilidades tbody tr:nth-child(even) {
-    background-color: #f9f9f9;
-  }
-
-  .tabla-vulnerabilidades tbody tr:hover {
-    background-color: #f1f1f1;
-  }
-
-.btn {
-  padding: 6px 12px;
-  margin: 2px;
-  border: none;
-  border-radius: 4px;
-  color: #fff;
-  cursor: pointer;
-  font-size: 14px;
-}
-
-  .btn.editar {
-    background-color: #3498db;
-  }
-
-  .btn.archivo {
-    background-color: #2ecc71;
-  }
-
-  .btn:hover {
-    opacity: 0.9;
-  }
 
 .mensaje-vacio {
   text-align: center;
-  color: #888;
-  margin-top: 20px;
+  font-style: italic;
+  color: #999;
+  margin-top: 2rem;
 }
+
+.lista-vulnerabilidades {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 cards por fila en escritorio */
+  gap: 12px; /* espacio entre cards */
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.card {
+  background: white;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid transparent; /* borde invisible por defecto */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+  .card:hover {
+    border-color: #6a0dad; /* morado */
+    box-shadow: 0 4px 12px rgba(106, 13, 173, 0.25); /* sombra un poco más intensa */
+  }
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+  .card-header h3 {
+    margin: 0;
+    font-weight: 600;
+    font-size: 1.2rem;
+  }
+
+.id-con-icono {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.id {
+  font-weight: 700;
+  color: #555;
+}
+
+.icono-tipo {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.descripcion {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.card-details {
+  font-size: 0.85rem;
+  color: #666;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columnas iguales */
+  gap: 6px 20px;
+}
+
+  .card-details > div {
+    margin: 2px 0; /* muy poco espacio vertical */
+    font-size: 0.9rem;
+    color: #555;
+  }
+
+  .card-details strong {
+    color: #333;
+  }
+
+/* Responsive: tablets - 2 columnas */
+@media (max-width: 768px) {
+  .card-details {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Responsive: tablets - 1 columna */
+@media (max-width: 768px) {
+  .lista-vulnerabilidades {
+    grid-template-columns: 1fr; /* 1 card por fila */
+    max-width: 700px;
+  }
+}
+
+/* Responsive: móviles - 1 columna */
+@media (max-width: 480px) {
+  .card-details {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.btn {
+  flex: 1;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: background-color 0.25s ease;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  user-select: none;
+}
+
+  .btn svg.icon-btn {
+    width: 18px;
+    height: 18px;
+    stroke-width: 2;
+  }
+
+  .btn.editar {
+    background-color: #2980b9;
+    color: white;
+  }
+
+    .btn.editar:hover {
+      background-color: #1f618d;
+    }
+
+  .btn.archivo {
+    background-color: #27ae60;
+    color: white;
+  }
+
+    .btn.archivo:hover {
+      background-color: #1e8449;
+    }

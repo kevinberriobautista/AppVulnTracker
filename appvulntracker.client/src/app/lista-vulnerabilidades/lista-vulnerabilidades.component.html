@@ -1,42 +1,70 @@
 <h2 class="titulo">Lista de Vulnerabilidades</h2>
 
-<table class="tabla-vulnerabilidades">
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Título</th>
-      <th>Descripción</th>
-      <th>Activo Afectado</th>
-      <th>Reportador</th>
-      <th>Revisor</th>
-      <th>Creación</th>
-      <th>Actualización</th>
-      <th>Severidad</th>
-      <th>Estado</th>
-      <th>Acciones</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let vulnerabilidad of listaVulnerabilidades">
-      <td>{{ vulnerabilidad.id_vulnerabilidad }}</td>
-      <td>{{ vulnerabilidad.titulo }}</td>
-      <td>{{ vulnerabilidad.descripcion }}</td>
-      <td>{{ vulnerabilidad.activoAfectado }}</td>
-      <td>{{ vulnerabilidad.id_reportador }}</td>
-      <td>{{ vulnerabilidad.id_revisor }}</td>
-      <td>{{ vulnerabilidad.fechaCreacion | date: 'short' }}</td>
-      <td>{{ vulnerabilidad.fechaActualizacion | date: 'short' }}</td>
-      <td>{{ estadoYSeveridadMap[vulnerabilidad.id_vulnerabilidad]?.severidad || '...' }}</td>
-      <td>{{ estadoYSeveridadMap[vulnerabilidad.id_vulnerabilidad]?.estado || '...' }}</td>
-      <td>
-        <!--<button (click)="editarVulnerabilidad(vulnerabilidad)" class="btn editar">Editar</button>
-        <button (click)="agregarArchivo(vulnerabilidad)" class="btn archivo">Agregar Archivo</button>-->
-      </td>
-    </tr>
-  </tbody>
-</table>
-
-<p *ngIf="listaVulnerabilidades.length === 0" class="mensaje-vacio">
+<div *ngIf="listaVulnerabilidades.length === 0" class="mensaje-vacio">
   No hay vulnerabilidades registradas.
-</p>
+</div>
 
+<div class="lista-vulnerabilidades">
+  <div class="card" *ngFor="let vulnerabilidad of listaVulnerabilidades">
+    <div class="card-header">
+      <h3>{{ vulnerabilidad.titulo }}</h3>
+      <div class="id-con-icono">
+        <span class="id">#{{ vulnerabilidad.id_vulnerabilidad }}</span>
+        <span class="icono-tipo">
+          <!-- Severidad 1: Círculo verde con "!" en blanco -->
+          <img *ngIf="vulnerabilidad.severidad === 1"
+               src="https://images.icon-icons.com/2436/PNG/512/error_caution_warning_icon_147465.png"
+               alt="Nivel 1 - Bajo verde"
+               width="24" height="24" />
+
+          <!-- Severidad 2: Triángulo amarillo con "!" negro -->
+          <img *ngIf="vulnerabilidad.severidad === 2"
+               src="https://images.icon-icons.com/623/PNG/512/sign-emergency-code-sos_131_icon-icons.com_57207.png"
+               alt="Nivel 2 - Medio amarillo"
+               width="24" height="24" />
+
+          <!-- Severidad 3: Triángulo naranja con "!" blanco -->
+          <img *ngIf="vulnerabilidad.severidad === 3"
+               src="https://images.icon-icons.com/288/PNG/128/Stop_30757.png"
+               alt="Nivel 3 - Alto naranja"
+               width="24" height="24" />
+
+          <!-- Severidad 4: Triángulo rojo con "?" blanco -->
+          <img *ngIf="vulnerabilidad.severidad === 4"
+               src="https://images.icon-icons.com/1380/PNG/512/vcsconflicting_93497.png"
+               alt="Nivel 4 - Crítico rojo"
+               width="24" height="24" />
+        </span>
+      </div>
+    </div>
+
+    <p class="descripcion">{{ vulnerabilidad.descripcion }}</p>
+
+    <div class="card-details">
+      <div><strong>Activo Afectado:</strong> {{ vulnerabilidad.activoAfectado }}</div>
+      <div><strong>Reportador:</strong> {{ vulnerabilidad.id_reportador }}</div>
+      <div><strong>Revisor:</strong> {{ vulnerabilidad.id_revisor }}</div>
+      <div><strong>Creación:</strong> {{ vulnerabilidad.fechaCreacion | date:'short' }}</div>
+      <div><strong>Actualización:</strong> {{ vulnerabilidad.fechaActualizacion | date:'short' }}</div>
+      <div><strong>Severidad:</strong> {{ estadoYSeveridadMap[vulnerabilidad.id_vulnerabilidad]?.severidad || '...' }}</div>
+      <div><strong>Estado:</strong> {{ estadoYSeveridadMap[vulnerabilidad.id_vulnerabilidad]?.estado || '...' }}</div>
+    </div>
+
+    <div class="card-actions">
+      <button aria-label="Editar" title="Editar" class="btn editar">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon-btn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 20h9" />
+          <path d="M16.5 3.5a2.121 2.121 0 1 1 3 3L7 19l-4 1 1-4 12.5-12.5z" />
+        </svg>
+        Editar
+      </button>
+      <button aria-label="Agregar Archivo" title="Agregar Archivo" class="btn archivo">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon-btn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 5v14" />
+          <path d="M5 12h14" />
+        </svg>
+        Añadir Archivo
+      </button>
+    </div>
+  </div>
+</div>
