@@ -13,4 +13,9 @@
     <Folder Include="src\app\vulnerabilidades\" />
     <Folder Include="src\app\usuarios\" />
   </ItemGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties angular_1json__JsonSchema="https://upliftci.dev/static/schema.json" />
+    </VisualStudio>
+  </ProjectExtensions>
 </Project>

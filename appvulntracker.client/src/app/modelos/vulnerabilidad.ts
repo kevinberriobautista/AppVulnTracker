@@ -2,8 +2,8 @@ export interface Vulnerabilidad {
   id_vulnerabilidad: number;
   titulo: string;
   descripcion: string;
-  severidad: string;
-  estado: string;
+  severidad: number;
+  estado: number;
   activoAfectado: string;
   fechaCreacion: string;
   fechaActualizacion: string;

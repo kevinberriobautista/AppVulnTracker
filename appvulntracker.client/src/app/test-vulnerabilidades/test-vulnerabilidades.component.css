@@ -1,12 +1,19 @@
-/* Título principal */
+/* =====================
+   ESTILO DEL TÍTULO
+   ===================== */
 .titulo {
   text-align: center;
   font-size: 2rem;
   margin: 20px 0;
-  color: #333;
+  /*background-color: #f0f0f0;*/ /* fondo gris claro */
+  color: #000; /* texto negro */
+  padding: 10px;
+  border-radius: 8px;
 }
 
-/* Contenedor de los tests (rejilla) */
+/* =====================
+   REJILLA DE TARJETAS DE TEST
+   ===================== */
 .grid-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -15,10 +22,12 @@
   margin-bottom: 30px;
 }
 
-/* Tarjetas de test individuales */
+/* =====================
+   TARJETAS INDIVIDUALES DE TEST
+   ===================== */
 .test-box {
   background: #f4f4f4;
-  border-left: 4px solid #007bff;
+  border-left: 4px solid #6f42c1; /* línea morada al costado */
   padding: 25px;
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
@@ -27,26 +36,32 @@
   min-height: 140px;
 }
 
+  /* Efecto al pasar el mouse por encima */
   .test-box:hover {
     transform: translateY(-3px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    background-color: #e9f3ff;
+    background-color: #e9e4f6; /* fondo más claro al hacer hover */
   }
 
+  /* Título del test dentro de la tarjeta */
   .test-box h3 {
     margin-top: 0;
-    color: #007bff;
+    color: #6f42c1; /* morado */
   }
 
+  /* Descripción dentro de la tarjeta */
   .test-box p {
     color: #555;
   }
 
-/* Resultado principal - card */
+/* =====================
+   CONTENEDOR DEL RESULTADO DEL TEST
+   ===================== */
 .resultado {
   margin: 30px 10px;
 }
 
+/* Tarjeta de resultado mostrada tras ejecutar un test */
 .card-resultado {
   background-color: white;
   border-radius: 10px;
@@ -58,11 +73,9 @@
   flex-wrap: wrap;
   gap: 15px;
   word-wrap: break-word;
-  overflow-wrap: break-word;
-  word-break: break-word;
-  white-space: normal;
 }
 
+  /* Elementos de resultado dentro de la tarjeta */
   .card-resultado > div {
     flex: 1 1 45%;
     min-width: 150px;
@@ -70,12 +83,16 @@
     color: #333;
   }
 
-/* Historial (accordion) */
+/* =====================
+   SECCIÓN DE HISTORIAL / ACCORDION
+   ===================== */
 .historial {
   margin: 30px 10px;
 }
 
-/* Filtros */
+/* =====================
+   FILTROS DE BÚSQUEDA DENTRO DEL ACCORDION
+   ===================== */
 .filtros {
   display: flex;
   gap: 10px;
@@ -83,6 +100,7 @@
   padding: 0 10px;
 }
 
+  /* Campos de input para filtrar */
   .filtros input {
     flex: 1;
     padding: 8px 10px;
@@ -91,7 +109,9 @@
     font-size: 14px;
   }
 
-/* Cards para historial */
+/* =====================
+   TARJETAS DE TEST DENTRO DEL HISTORIAL
+   ===================== */
 .cards-container {
   display: flex;
   flex-direction: column;
@@ -99,6 +119,7 @@
   padding: 0 10px 20px;
 }
 
+/* Estilo de cada test guardado */
 .card-test {
   background: #f9f9f9;
   border-radius: 8px;
@@ -107,12 +128,9 @@
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  word-break: break-word;
-  white-space: normal;
 }
 
+  /* Campos de cada test mostrado */
   .card-test > div {
     flex: 1 1 45%;
     min-width: 140px;
@@ -120,7 +138,9 @@
     color: #333;
   }
 
-/* No hay tests */
+/* =====================
+   MENSAJE CUANDO NO HAY TESTS
+   ===================== */
 .no-tests {
   padding: 20px;
   text-align: center;
@@ -128,21 +148,32 @@
   font-style: italic;
 }
 
-/* Accordion personalizado */
+/* =====================
+   ESTILOS PERSONALIZADOS PARA MAT-EXPANSION-PANEL (ACCORDION)
+   ===================== */
 mat-expansion-panel {
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  background-color: #f7f7f7; /* fondo claro */
 }
 
+/* Cabecera del accordion */
 mat-expansion-panel-header {
-  background-color: #f0f0f0;
+  background-color: #eeeeee; /* fondo aún más claro */
   padding: 12px;
   font-weight: 600;
   font-size: 16px;
+  color: #000; /* texto negro */
 }
 
-/* Media query para pantallas pequeñas */
+mat-panel-title {
+  color: #000 !important;
+}
+
+/* =====================
+   ESTILO RESPONSIVO PARA PANTALLAS PEQUEÑAS
+   ===================== */
 @media (max-width: 768px) {
   .grid-container {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -182,6 +213,9 @@ mat-expansion-panel-header {
     }
 }
 
+/* =====================
+   BOTÓN PARA AGREGAR VULNERABILIDAD
+   ===================== */
 .btn-agregar {
   margin-top: 10px;
   padding: 8px 14px;
@@ -194,6 +228,7 @@ mat-expansion-panel-header {
   transition: background-color 0.2s ease;
 }
 
+  /* Hover del botón */
   .btn-agregar:hover {
     background-color: #5a3795;
   }

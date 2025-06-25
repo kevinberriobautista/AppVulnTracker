@@ -35,5 +35,48 @@ namespace AppVulnTracker.Server.Controllers
                 return BadRequest();
             }
         }
+
+        // Método para crear un vulnerabilidad
+        public async Task<ActionResult<VulnerabilidadDTO>> CrearVulnerabilidad(VulnerabilidadDTO vulnerabilidad)
+        {
+            try
+            {
+                //var testvulnerabilidad = new VulnerabilidadDTO
+                //{
+                //    titulo = vulnerabilidad.titulo,
+                //    descripcion = vulnerabilidad.descripcion,
+                //    severidad = vulnerabilidad.severidad,
+                //    estado = vulnerabilidad.url,
+                //    activoAfectado = vulnerabilidad,
+                //    fechaCreacion = vulnerabilidad,
+                //    fechaActualizacion = vulnerabilidad,
+                //    id_reportador = vulnerabilidad,
+                //    id_revisor = vulnerabilidad,
+                //};
+
+                using (var conexion = context._connection)
+                {
+                    conexion.Open();
+                    using (var exec = conexion.BeginTransaction())
+                    {
+                        try
+                        { 
+                            var nuevaVulnerabilidad = await conexion.QuerySingleAsync<VulnerabilidadDTO>(vulnerabilidadSQL.CrearVulnerabilidad(vulnerabilidad), transaction: exec);
+                            exec.Commit();
+                            return Ok(nuevaVulnerabilidad);
+                        }
+                        catch (Exception)
+                        {
+                            exec.Rollback();
+                            return BadRequest("Error al crear la vulnerabilidad.");
+                        }
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+        }
     }
 }

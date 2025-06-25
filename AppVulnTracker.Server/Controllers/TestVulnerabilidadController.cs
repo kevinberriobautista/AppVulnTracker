@@ -90,10 +90,6 @@ namespace AppVulnTracker.Server.Controllers
                     {
                         try
                         {
-                            //var nuevoTestVulnerabilidad = await conexion.ExecuteScalarAsync<int>(testVulnerabilidadSQL.CrearTest(testvulnerabilidad), transaction: exec);
-                            //exec.Commit();
-                            //return Ok(nuevoTestVulnerabilidad);
-
                             var testFinal = await conexion.QuerySingleAsync<TestVulnerabilidadDTO>(testVulnerabilidadSQL.CrearTest(testvulnerabilidad), transaction: exec);
                             exec.Commit();
                             return Ok(testFinal);

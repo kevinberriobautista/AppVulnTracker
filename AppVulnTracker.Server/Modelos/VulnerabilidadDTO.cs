@@ -5,8 +5,8 @@
         public int id_vulnerabilidad { get; set; }
         public string titulo { get; set; }
         public string descripcion { get; set; }
-        public string severidad { get; set; }
-        public string estado { get; set; }
+        public int severidad { get; set; }
+        public int estado { get; set; }
         public string activoAfectado { get; set; }
         public DateTime fechaCreacion { get; set; }
         public DateTime fechaActualizacion { get; set; }
