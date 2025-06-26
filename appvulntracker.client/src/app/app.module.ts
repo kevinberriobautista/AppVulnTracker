@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { MatExpansionModule } from '@angular/material/expansion';
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthComponent } from './auth/auth.component';
@@ -15,6 +16,7 @@ import { InicioComponent } from './inicio/inicio.component';
 import { TestVulnerabilidadesComponent } from './test-vulnerabilidades/test-vulnerabilidades.component';
 import { ListaVulnerabilidadesComponent } from './lista-vulnerabilidades/lista-vulnerabilidades.component';
 import { EditarVulnerabilidadesComponent } from './editar-vulnerabilidades/editar-vulnerabilidades.component';
+import { HistorialComponent } from './historial/historial.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,8 @@ import { EditarVulnerabilidadesComponent } from './editar-vulnerabilidades/edita
     InicioComponent,
     TestVulnerabilidadesComponent,
     ListaVulnerabilidadesComponent,
-    EditarVulnerabilidadesComponent
+    EditarVulnerabilidadesComponent,
+    HistorialComponent
   ],
   imports: [
     BrowserModule, HttpClientModule,

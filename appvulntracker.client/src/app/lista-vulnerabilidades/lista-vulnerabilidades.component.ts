@@ -49,4 +49,13 @@ export class ListaVulnerabilidadesComponent {
   cerrarModal() {
     this.mostrarModalEditar = false;
   }
+
+  mostrarHistorial: boolean = false;
+  idSeleccionadoParaHistorial!: number;
+
+  abrirHistorial(id: number): void {
+    this.idSeleccionadoParaHistorial = id;
+    this.mostrarHistorial = true;
+  }
+
 }

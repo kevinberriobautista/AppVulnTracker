@@ -9,12 +9,14 @@ namespace AppVulnTracker.Server.Controllers
     public class VulnerabilidadController : ControllerBase
     {
         VulnerabilidadSQL vulnerabilidadSQL;
+        HistorialVulnerabilidadSQL historialVulnerabilidadSQL;
 
         private readonly AplicationDbContext context;
         public VulnerabilidadController(AplicationDbContext context)
         {
             this.context = context;
             vulnerabilidadSQL = new VulnerabilidadSQL();
+            historialVulnerabilidadSQL = new HistorialVulnerabilidadSQL();
         }
 
         //Metodo para listar vulnerabilidades
@@ -68,6 +70,8 @@ namespace AppVulnTracker.Server.Controllers
                         try
                         { 
                             var nuevaVulnerabilidad = await conexion.QuerySingleAsync<VulnerabilidadDTO>(vulnerabilidadSQL.CrearVulnerabilidad(vulnerabilidad), transaction: exec);
+                            var vulnerabilidadConId = nuevaVulnerabilidad;
+                            var crearHistorial = await conexion.ExecuteScalarAsync<HistorialVulnerabilidadDTO>(historialVulnerabilidadSQL.CrearEntradaHistorialVulnerabilidad(vulnerabilidadConId), transaction: exec);
                             exec.Commit();
                             return Ok(nuevaVulnerabilidad);
                         }
@@ -98,6 +102,7 @@ namespace AppVulnTracker.Server.Controllers
                         try
                         {
                             var vulnerabilidadModificada = await conexion.QuerySingleAsync<VulnerabilidadDTO>(vulnerabilidadSQL.ModificarVulnerabilidad(vulnerabilidad), transaction: exec);
+                            var añadirEntradaHistorial = await conexion.ExecuteScalarAsync<HistorialVulnerabilidadDTO>(historialVulnerabilidadSQL.CrearEntradaHistorialVulnerabilidad(vulnerabilidad), transaction: exec);
                             exec.Commit();
                             return Ok(vulnerabilidadModificada);
                         }

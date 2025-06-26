@@ -163,3 +163,12 @@
     .btn.archivo:hover {
       background-color: #1e8449;
     }
+
+  .btn.historial {
+    background-color: #bf55ff;
+    color: white;
+  }
+
+    .btn.historial:hover {
+      background-color: #6a0dad;
+    }

@@ -1,0 +1,128 @@
+/* Reset básico para la lista */
+.historial-list {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #2c3e50;
+}
+
+.loading, .error {
+  text-align: center;
+  font-size: 1.1rem;
+  margin: 20px 0;
+}
+
+.error {
+  color: #e74c3c;
+  font-weight: 600;
+}
+
+/* Cada tarjeta */
+.historial-card {
+  background: #f9fafb;
+  border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  padding: 1.2rem 1.6rem;
+  margin-bottom: 1.2rem;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  cursor: default;
+}
+
+  .historial-card:hover {
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    transform: translateY(-4px);
+  }
+
+/* Cabecera con título y severidad */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.8rem;
+}
+
+  .header h3 {
+    margin: 0;
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: #34495e;
+  }
+
+/* Severidad con icono */
+.severity {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.3rem 0.6rem;
+  border-radius: 12px;
+  user-select: none;
+  color: #fff;
+}
+
+  .severity i.material-icons {
+    font-size: 1.2rem;
+    vertical-align: middle;
+  }
+
+/* Colores pastel para severidad */
+.sev-1 {
+  background-color: #6fcf97;
+}
+/* Verde suave */
+.sev-2 {
+  background-color: #f2c94c;
+}
+/* Amarillo pastel */
+.sev-3 {
+  background-color: #f2994a;
+}
+/* Naranja pastel */
+.sev-4 {
+  background-color: #eb5757;
+}
+/* Rojo pastel */
+
+/* Descripción más ligera */
+.descripcion {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+/* Detalles como lista */
+.details {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+  .details li {
+    min-width: 140px;
+  }
+
+/* Footer con fechas */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: #999;
+  border-top: 1px solid #e0e0e0;
+  padding-top: 0.6rem;
+}

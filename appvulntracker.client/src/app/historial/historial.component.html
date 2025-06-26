@@ -1,0 +1,29 @@
+<div *ngIf="cargando" class="loading">Cargando historial...</div>
+<div *ngIf="error" class="error">{{ error }}</div>
+
+<div *ngIf="!cargando && !error" class="historial-list">
+  <h2 class="title">Historial de Vulnerabilidad #{{ idVulnerabilidad }}</h2>
+
+  <div *ngFor="let item of historial" class="historial-card">
+    <div class="header">
+      <h3>{{ item.titulo }}</h3>
+      <span class="severity" [ngClass]="'sev-' + item.severidad">
+        <i class="material-icons">warning</i> Severidad {{ item.severidad }}
+      </span>
+    </div>
+
+    <p class="descripcion">{{ item.descripcion }}</p>
+
+    <ul class="details">
+      <li><strong>Estado:</strong> {{ item.estado }}</li>
+      <li><strong>Activo afectado:</strong> {{ item.activoAfectado }}</li>
+      <li><strong>Reportador ID:</strong> {{ item.id_reportador }}</li>
+      <li><strong>Revisor ID:</strong> {{ item.id_revisor }}</li>
+    </ul>
+
+    <div class="footer">
+      <small>Creado: {{ item.fechaCreacion | date:'short' }}</small>
+      <small>Actualizado: {{ item.fechaActualizacion | date:'short' }}</small>
+    </div>
+  </div>
+</div>
