@@ -35,6 +35,9 @@ export class EditarVulnerabilidadesComponent {
 
     this.cargando = true; // Activa el estado de carga
 
+    // Actualiza la fecha de edición
+    this.vulnerabilidad.fechaActualizacion = new Date();
+
     // Llama al backend para editar la vulnerabilidad
     this.editarService.editarVulnerabilidad(this.vulnerabilidad).subscribe({
       next: (res) => {

@@ -18,8 +18,8 @@ export class VulnerabilidadesComponent {
     severidad: 0,
     estado: 0,
     activoAfectado: '',
-    fechaCreacion: new Date().toISOString(),
-    fechaActualizacion: new Date().toISOString(),
+    fechaCreacion: new Date(),
+    fechaActualizacion: new Date(),
     id_reportador: 0,
     id_revisor: 0
   };

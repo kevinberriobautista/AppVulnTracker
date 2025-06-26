@@ -21,8 +21,8 @@ namespace AppVulnTracker.Server.Sql
         {
             return $"insert into vulnerabilidades (titulo, descripcion, severidad, estado, activoAfectado, fechaCreacion, " +
                 $"fechaActualizacion, id_reportador, id_revisor) values ('{vulnerabilidad.titulo}', '{vulnerabilidad.descripcion}', " +
-                $"{vulnerabilidad.severidad}, {vulnerabilidad.estado}, '{vulnerabilidad.activoAfectado}', '{vulnerabilidad.fechaCreacion:yyyy-MM-dd}', " +
-                $"'{vulnerabilidad.fechaActualizacion:yyyy-MM-dd}', {vulnerabilidad.id_reportador}, {vulnerabilidad.id_revisor});" +
+                $"{vulnerabilidad.severidad}, {vulnerabilidad.estado}, '{vulnerabilidad.activoAfectado}', '{vulnerabilidad.fechaCreacion:yyyy-MM-dd HH:mm:ss}', " +
+                $"'{vulnerabilidad.fechaActualizacion:yyyy-MM-dd HH:mm:ss}', {vulnerabilidad.id_reportador}, {vulnerabilidad.id_revisor});" +
                 $"SELECT * FROM vulnerabilidades WHERE id_vulnerabilidad = LAST_INSERT_ID();";
         }
 
@@ -31,7 +31,7 @@ namespace AppVulnTracker.Server.Sql
         {
             return $"UPDATE vulnerabilidades " +
                 $"SET titulo = '{vulnerabilidad.titulo}', descripcion = '{vulnerabilidad.descripcion}', severidad = {vulnerabilidad.severidad}, " +
-                $"estado = {vulnerabilidad.estado}, activoAfectado = '{vulnerabilidad.activoAfectado}', fechaActualizacion = '{vulnerabilidad.fechaActualizacion:yyyy-MM-dd}', " +
+                $"estado = {vulnerabilidad.estado}, activoAfectado = '{vulnerabilidad.activoAfectado}', fechaActualizacion = '{vulnerabilidad.fechaActualizacion:yyyy-MM-dd HH:mm:ss}', " +
                 $"id_reportador = {vulnerabilidad.id_reportador}, id_revisor = {vulnerabilidad.id_revisor} " +
                 $"WHERE id_vulnerabilidad = {vulnerabilidad.id_vulnerabilidad}; " +
                 $"SELECT * FROM vulnerabilidades WHERE id_vulnerabilidad = {vulnerabilidad.id_vulnerabilidad};";

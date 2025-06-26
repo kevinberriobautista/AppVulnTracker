@@ -62,6 +62,8 @@ namespace AppVulnTracker.Server.Controllers
         {
             try
             {
+                vulnerabilidad.fechaCreacion = DateTime.Now;
+                vulnerabilidad.fechaActualizacion = DateTime.Now;
                 using (var conexion = context._connection)
                 {
                     conexion.Open();
@@ -94,6 +96,8 @@ namespace AppVulnTracker.Server.Controllers
         {
             try
             {
+                // Actualiza la fecha de actualización a la hora local
+                vulnerabilidad.fechaActualizacion = DateTime.Now;
                 using (var conexion = context._connection)
                 {
                     conexion.Open();

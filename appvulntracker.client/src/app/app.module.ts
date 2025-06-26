@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { LOCALE_ID } from '@angular/core';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -36,7 +37,9 @@ import { HistorialComponent } from './historial/historial.component';
     BrowserModule, HttpClientModule,
     AppRoutingModule, FormsModule, MatExpansionModule,
   ],
-  providers: [],
+  providers: [
+    { provide: LOCALE_ID, useValue: 'es' }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

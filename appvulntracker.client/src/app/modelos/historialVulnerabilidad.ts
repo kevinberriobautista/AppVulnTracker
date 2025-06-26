@@ -5,8 +5,8 @@ export interface HistorialVulnerabilidad {
   descripcion: string;
   severidad: number;
   estado: number;
-  activoAfectado: string;
-  fechaCreacion: string;
+  activoAfectado: Date;
+  fechaCreacion: Date;
   fechaActualizacion: string;
   id_reportador: number;
   id_revisor: number;
