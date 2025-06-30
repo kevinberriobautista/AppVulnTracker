@@ -4,5 +4,5 @@ export interface TestVulnerabilidad {
   tipo: number;
   url: string;
   resultado: string;
-  fecha: string;
+  fecha: Date;
 }

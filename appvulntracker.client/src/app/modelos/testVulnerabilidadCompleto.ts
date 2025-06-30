@@ -4,7 +4,7 @@ export interface TestVulnerabilidadCompleto {
   tipo: number;
   url: string;
   resultado: string;
-  fecha: string;
+  fecha: Date;
   nombre_usuario: string
   nombre_tipo: string
 }

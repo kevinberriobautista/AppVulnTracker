@@ -18,6 +18,7 @@ import { TestVulnerabilidadesComponent } from './test-vulnerabilidades/test-vuln
 import { ListaVulnerabilidadesComponent } from './lista-vulnerabilidades/lista-vulnerabilidades.component';
 import { EditarVulnerabilidadesComponent } from './editar-vulnerabilidades/editar-vulnerabilidades.component';
 import { HistorialComponent } from './historial/historial.component';
+import { CrearVulnerabilidadPorTestComponent } from './crear-vulnerabilidad-por-test/crear-vulnerabilidad-por-test.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { HistorialComponent } from './historial/historial.component';
     TestVulnerabilidadesComponent,
     ListaVulnerabilidadesComponent,
     EditarVulnerabilidadesComponent,
-    HistorialComponent
+    HistorialComponent,
+    CrearVulnerabilidadPorTestComponent
   ],
   imports: [
     BrowserModule, HttpClientModule,

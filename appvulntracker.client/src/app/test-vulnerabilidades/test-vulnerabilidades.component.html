@@ -75,3 +75,13 @@
     </div>
   </mat-expansion-panel>
 </mat-accordion>
+
+<!-- Modal para crear vulnerabilidad desde test -->
+<div class="modal-backdrop" *ngIf="testSeleccionado">
+  <div class="modal">
+    <app-crear-vulnerabilidad-por-test [testvulnerabilidad]="testSeleccionado"
+                                       (cerrar)="cerrarModal()">
+    </app-crear-vulnerabilidad-por-test>
+  </div>
+</div>
+

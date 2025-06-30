@@ -40,18 +40,17 @@ export class TestVulnerabilidadesComponent {
     );
   }
 
+  
+  testSeleccionado: TestVulnerabilidadCompleto | null = null;
+  testsVulnerabilidadCompletoSeleccionado: TestVulnerabilidadCompleto[] = [];
+
   // Crear vulnerabilidad
-  agregarVulnerabilidad(test: any) {
-    // Aquí puedes hacer lo que necesites para agregar la vulnerabilidad.
-    // Por ejemplo, abrir un diálogo modal, redirigir a otra página o hacer una llamada al backend.
+  agregarVulnerabilidad(test: TestVulnerabilidadCompleto) {
+    this.testSeleccionado = test;
+  }
 
-    console.log('Agregar vulnerabilidad para test:', test);
-
-    // Ejemplo: abrir un modal (si usas Angular Material Dialog)
-    // this.dialog.open(AgregarVulnerabilidadDialogComponent, { data: test });
-
-    // O redirigir a otro componente pasando el test
-    // this.router.navigate(['/agregar-vulnerabilidad', test.id_testvulnerabilidad]);
+  cerrarModal() {
+    this.testSeleccionado = null;
   }
 
 

@@ -86,7 +86,7 @@ c. Frontend
 
 Mostrar los resultados de los test en tablas o tarjetas.
 
-Permitir guardar el informe de forma local o en la base de datos.
+Permitir guardar el informe de forma local o en la base de datos. -------------------- FALTARIA EL INFORME LOCAL -------------------------
 
 --------------------------------------------------------------------------------------------------------
 
@@ -97,7 +97,7 @@ Donde se registran, gestionan y corrigen vulnerabilidades.
 a. Listado de vulnerabilidades
 
 Página que muestre todas las vulnerabilidades detectadas/manualmente añadidas.
-
+ 
 Botón para agregar una nueva vulnerabilidad.
 
 b. Formulario para añadir vulnerabilidades

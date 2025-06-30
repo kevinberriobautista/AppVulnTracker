@@ -1,0 +1,84 @@
+.form-title {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #5e2ca5; /* Morado */
+}
+
+.form-container {
+  background-color: #fafafa;
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 600px;
+  margin: auto;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.btn-morado {
+  background-color: #6f42c1;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+  .btn-morado:hover {
+    background-color: #5e2ca5;
+  }
+
+.btn-cancelar {
+  background-color: #ddd;
+  color: #333;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+  .btn-cancelar:hover {
+    background-color: #bbb;
+  }
+
+.mensaje-success {
+  margin-top: 15px;
+  color: green;
+  text-align: center;
+}
+
+.mensaje-error {
+  margin-top: 15px;
+  color: red;
+  text-align: center;
+}

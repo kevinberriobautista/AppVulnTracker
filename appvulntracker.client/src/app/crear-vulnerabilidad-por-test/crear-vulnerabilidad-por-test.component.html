@@ -1,0 +1,86 @@
+<h2 class="form-title">Crear Vulnerabilidad</h2>
+
+<form (ngSubmit)="crearVulnerabilidadPorTest(vulForm)" #vulForm="ngForm" class="form-container">
+  <!-- Título -->
+  <div class="form-group">
+    <label for="titulo">Título</label>
+    <input id="titulo"
+           name="titulo"
+           [(ngModel)]="vulnerabilidad.titulo"
+           required
+           placeholder="Ej: Inyección SQL en login" />
+  </div>
+
+  <!-- Descripción -->
+  <div class="form-group">
+    <label for="descripcion">Descripción</label>
+    <textarea id="descripcion"
+              name="descripcion"
+              [(ngModel)]="vulnerabilidad.descripcion"
+              required
+              placeholder="Describe la vulnerabilidad detectada..."></textarea>
+  </div>
+
+  <!-- Severidad -->
+  <div class="form-group">
+    <label for="severidad">Severidad</label>
+    <select id="severidad" name="severidad" [(ngModel)]="vulnerabilidad.severidad" required>
+      <option [ngValue]="null" disabled selected>Selecciona severidad</option>
+      <option [ngValue]="1">Baja</option>
+      <option [ngValue]="2">Media</option>
+      <option [ngValue]="3">Alta</option>
+      <option [ngValue]="4">Crítica</option>
+    </select>
+  </div>
+
+  <!-- Estado -->
+  <div class="form-group">
+    <label for="estado">Estado</label>
+    <select id="estado" name="estado" [(ngModel)]="vulnerabilidad.estado" required>
+      <option [ngValue]="null" disabled selected>Selecciona estado</option>
+      <option [ngValue]="1">Detectada</option>
+      <option [ngValue]="2">En revisión</option>
+      <option [ngValue]="3">Mitigada</option>
+    </select>
+  </div>
+
+  <!-- Activo Afectado -->
+  <div class="form-group">
+    <label for="activoAfectado">Activo Afectado</label>
+    <input id="activoAfectado"
+           name="activoAfectado"
+           [(ngModel)]="vulnerabilidad.activoAfectado"
+           required
+           placeholder="Ej: https://miweb.com/login" />
+  </div>
+
+  <!-- ID Reportador -->
+  <div class="form-group">
+    <label for="id_reportador">ID Reportador</label>
+    <input id="id_reportador"
+           name="id_reportador"
+           type="number"
+           [(ngModel)]="vulnerabilidad.id_reportador"
+           required />
+  </div>
+
+  <!-- ID Revisor -->
+  <div class="form-group">
+    <label for="id_revisor">ID Revisor</label>
+    <input id="id_revisor"
+           name="id_revisor"
+           type="number"
+           [(ngModel)]="vulnerabilidad.id_revisor"
+           required />
+  </div>
+
+  <!-- Botones -->
+  <div class="form-buttons">
+    <button type="submit" [disabled]="vulForm.invalid" class="btn-morado">Crear Vulnerabilidad</button>
+    <button type="button" (click)="cancelarCreacion()" class="btn-cancelar">Cancelar</button>
+  </div>
+
+  <!-- Mensajes -->
+  <p *ngIf="mensaje" class="mensaje-success">{{ mensaje }}</p>
+  <p *ngIf="errorMessage" class="mensaje-error">{{ errorMessage }}</p>
+</form>
