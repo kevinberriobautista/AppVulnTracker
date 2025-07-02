@@ -23,6 +23,7 @@ builder.Services.AddScoped<ArchivoAdjuntoController>();
 builder.Services.AddScoped<TestVulnerabilidadController>();
 builder.Services.AddScoped<ServicioTest>();
 builder.Services.AddScoped<HistorialVulnerabilidadController>();
+builder.Services.AddScoped<ChatbotController>();
 
 // Configurar CORS (antes de Build)
 builder.Services.AddCors(options =>
